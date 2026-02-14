@@ -1,28 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
     <title>Prudy Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Prudy => Building My Empire</h1>
-    <p>Future Software Developer.</p>
-    <h2>About Me</h2>
-    <p>I am learning software development and building real  step by step.</p>
-    
-    <h2>Skills</h2>
-    <ul>
-        <li>Python (Beginner)</li>
-        <li>HTML (Learning)</li>
-        <li>CSS (Starting)</li>
-    </ul>
+    <button id="themeToggle">Toggle Theme</button>
 
-    <h2>Projects</h2>
-    <p>Projects coming soon...</p>
+    <div class="container">
+        <h1>Prudy => Building My Empire</h1>
+        <p>Future Software Developer.</p>
 
-    <h2>Contact</h2>
-    <p>Email: prudycruise27@gmail.com</p>
+        <h2>About Me</h2>
+        <p>I am learning software development and building real projects step by step.</p>
+        
+        <h2>Skills</h2>
+        <ul>
+            <li>Python (Beginner)</li>
+            <li>HTML (Learning)</li>
+            <li>CSS (Starting)</li>
+        </ul>
+
+        <h2>Projects</h2>
+        <p>Projects coming soon...</p>
+
+        <h2>Contact</h2>
+        <p>Email: prudycruise27@gmail.com</p>
+    </div>
+
+<script>
+const toggleButton = document.getElementById("themeToggle");
+
+// Load saved theme preference
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+}
+
+toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+
+    // Save preference
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+});
+</script>
 
 </body>
 </html>
