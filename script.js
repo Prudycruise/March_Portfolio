@@ -42,7 +42,7 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 
 // Typing effect
-const textArray = ["Developer", "Creator", "Future Founder"];
+const textArray = ["Developer", "Creator", "Gamer...." ];
 let textIndex = 0;
 let charIndex = 0;
 
@@ -78,4 +78,20 @@ searchInput.addEventListener("input", function () {
             section.style.display = "none";
         }
     });
+});
+
+function showSection(id) {
+    sections.forEach(section => {
+        section.classList.remove("active-section");
+    });
+
+    document.getElementById(id).classList.add("active-section");
+}
+
+window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 500);
+    }, 800);
 });
