@@ -13,6 +13,11 @@
         <h1>Prudy => Building My Empire</h1>
         <p>Future Software Developer.</p>
 
+        <section class="hero">
+            <h2>Mission</h2>
+            <p>I am building Rydez Empire through code, creativity, and consistency.</p>
+        </section>
+
         <h2>About Me</h2>
         <p>I am learning software development and building real projects step by step.</p>
         
@@ -22,6 +27,18 @@
             <li>HTML (Learning)</li>
             <li>CSS (Starting)</li>
         </ul>
+
+        <section class="card-section">
+            <div class="card">
+                <h3>Current Focus</h3>
+                <p>Mastering HTML, CSS, and JavaScript fundamentals.</p>
+            </div>
+
+            <div class="card">
+                <h3>Next Goal</h3>
+                <p>Learning Flexbox and building responsive layouts.</p>
+            </div>
+        </section>
 
         <h2>Projects</h2>
         <p>Projects coming soon...</p>
@@ -41,7 +58,6 @@ if (localStorage.getItem("theme") === "light") {
 toggleButton.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
 
-    // Save preference
     if (document.body.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
     } else {
