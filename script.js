@@ -61,3 +61,21 @@ function typeEffect() {
 }
 
 typeEffect();
+
+// Live Search
+const searchInput = document.getElementById("searchInput");
+const sections = document.querySelectorAll("main section");
+
+searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+
+    sections.forEach(section => {
+        const text = section.textContent.toLowerCase();
+
+        if (text.includes(query)) {
+            section.style.display = "block";
+        } else {
+            section.style.display = "none";
+        }
+    });
+});
