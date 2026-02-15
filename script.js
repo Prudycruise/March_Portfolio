@@ -1,4 +1,7 @@
-// Navbar toggle
+// ========================
+// NAVBAR TOGGLE
+// ========================
+
 const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
@@ -8,26 +11,41 @@ if (menuBtn && navLinks) {
     });
 }
 
-// Theme toggle with localStorage
+
+// ========================
+// THEME TOGGLE + PERSISTENCE
+// ========================
+
 const toggleButton = document.getElementById("themeToggle");
 
-if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
+function applyTheme(theme) {
+    if (theme === "light") {
+        document.body.classList.add("light-mode");
+        if (toggleButton) toggleButton.textContent = "☀️";
+    } else {
+        document.body.classList.remove("light-mode");
+        if (toggleButton) toggleButton.textContent = "🌙";
+    }
 }
+
+const savedTheme = localStorage.getItem("theme") || "dark";
+applyTheme(savedTheme);
 
 if (toggleButton) {
     toggleButton.addEventListener("click", () => {
-        document.body.classList.toggle("light-mode");
+        const isLight = document.body.classList.contains("light-mode");
+        const newTheme = isLight ? "dark" : "light";
 
-        if (document.body.classList.contains("light-mode")) {
-            localStorage.setItem("theme", "light");
-        } else {
-            localStorage.setItem("theme", "dark");
-        }
+        applyTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
     });
 }
 
-// Scroll reveal
+
+// ========================
+// SCROLL REVEAL
+// ========================
+
 function revealOnScroll() {
     const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
@@ -45,31 +63,47 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Typing effect
+
+// ========================
+// TYPING EFFECT (IMPROVED)
+// ========================
+
 const textArray = ["Developer", "Creator", "Gamer"];
 let textIndex = 0;
 let charIndex = 0;
+let isDeleting = false;
 
 function typeEffect() {
     const typingElement = document.getElementById("typing");
     if (!typingElement) return;
 
     const currentText = textArray[textIndex];
-    typingElement.textContent = currentText.slice(0, charIndex);
 
-    charIndex++;
-
-    if (charIndex > currentText.length) {
-        charIndex = 0;
-        textIndex = (textIndex + 1) % textArray.length;
+    if (!isDeleting) {
+        typingElement.textContent = currentText.slice(0, charIndex++);
+        if (charIndex > currentText.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000); // pause at full word
+            return;
+        }
+    } else {
+        typingElement.textContent = currentText.slice(0, charIndex--);
+        if (charIndex < 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % textArray.length;
+        }
     }
 
-    setTimeout(typeEffect, 120);
+    setTimeout(typeEffect, isDeleting ? 60 : 100);
 }
 
 typeEffect();
 
-// Live Search (SAFE VERSION)
+
+// ========================
+// LIVE SEARCH (CLEANER)
+// ========================
+
 const searchInput = document.getElementById("searchInput");
 
 if (searchInput) {
