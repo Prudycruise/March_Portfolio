@@ -28,9 +28,8 @@ if (toggleButton) {
 }
 
 // Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
-
 function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
 
     reveals.forEach(element => {
@@ -44,10 +43,10 @@ function revealOnScroll() {
 }
 
 window.addEventListener('scroll', revealOnScroll);
-revealOnScroll(); // Run once on load
+window.addEventListener('load', revealOnScroll);
 
 // Typing effect
-const textArray = ["Developer", "Creator", "Gamer...."];
+const textArray = ["Developer", "Creator", "Gamer"];
 let textIndex = 0;
 let charIndex = 0;
 
@@ -56,8 +55,9 @@ function typeEffect() {
     if (!typingElement) return;
 
     const currentText = textArray[textIndex];
+    typingElement.textContent = currentText.slice(0, charIndex);
 
-    typingElement.textContent = currentText.slice(0, charIndex++);
+    charIndex++;
 
     if (charIndex > currentText.length) {
         charIndex = 0;
@@ -69,34 +69,22 @@ function typeEffect() {
 
 typeEffect();
 
-// Live Search
+// Live Search (SAFE VERSION)
 const searchInput = document.getElementById("searchInput");
-const sections = document.querySelectorAll("main section");
 
 if (searchInput) {
     searchInput.addEventListener("input", function () {
-        const query = searchInput.value.toLowerCase();
+        const query = this.value.toLowerCase().trim();
+        const sections = document.querySelectorAll("main section");
 
         sections.forEach(section => {
             const text = section.textContent.toLowerCase();
 
-            if (text.includes(query)) {
-                section.style.display = "block";
+            if (query === "" || text.includes(query)) {
+                section.style.display = "";
             } else {
                 section.style.display = "none";
             }
         });
     });
-}
-
-// Section switch helper
-function showSection(id) {
-    sections.forEach(section => {
-        section.classList.remove("active-section");
-    });
-
-    const target = document.getElementById(id);
-    if (target) {
-        target.classList.add("active-section");
-    }
 }
