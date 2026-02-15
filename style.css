@@ -7,32 +7,33 @@ html {
 ======================== */
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
-  color: #ffffff;
-}
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
 
-body {
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
-  background-size: 400% 400%;
-  animation: gradientMove 15s ease infinite;
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c1c);
+    background-size: 400% 400%;
+    animation: gradientMove 18s ease infinite;
 }
 
 @keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
+/* Main Container */
+
 .dashboard-container {
-  backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 2rem;
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 /* ========================
@@ -44,7 +45,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: rgba(15, 23, 42, 0.9);
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -52,6 +54,7 @@ body {
 
 .logo {
     margin: 0;
+    font-weight: bold;
 }
 
 .nav-links {
@@ -94,11 +97,12 @@ button {
     background-color: #38bdf8;
     color: black;
     font-weight: bold;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
 }
 
 /* ========================
@@ -107,7 +111,7 @@ button:hover {
 
 h1 {
     color: #38bdf8;
-    text-shadow: 0 0 10px #38bdf8;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
 
 h2 {
@@ -122,7 +126,7 @@ h2 {
 .hero {
     margin-top: 40px;
     padding: 25px;
-    background-color: rgba(56, 189, 248, 0.1);
+    background-color: rgba(56, 189, 248, 0.08);
     border-radius: 12px;
 }
 
@@ -141,14 +145,14 @@ h2 {
     flex: 1;
     min-width: 250px;
     padding: 20px;
-    background-color: rgba(250, 204, 21, 0.1);
+    background-color: rgba(250, 204, 21, 0.08);
     border-radius: 12px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background-color: rgba(250, 204, 21, 0.2);
+    transform: translateY(-6px);
+    background-color: rgba(250, 204, 21, 0.15);
 }
 
 /* ========================
@@ -156,7 +160,8 @@ h2 {
 ======================== */
 
 .light-mode {
-    background-color: white;
+    background: #ffffff !important;
+    animation: none;
     color: black;
 }
 
@@ -213,6 +218,10 @@ h2 {
 
     .card-section {
         flex-direction: column;
+    }
+
+    .dashboard-container {
+        margin: 30px 15px;
     }
 }
 
