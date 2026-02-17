@@ -12,6 +12,13 @@ body {
     animation: gradientMove 18s ease infinite;
 }
 
+/* PURE BLACK DARK MODE */
+body.dark-mode {
+    background: #000000;
+    animation: none;
+    color: #ffffff;
+}
+
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -25,9 +32,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: rgba(15, 23, 42, 0.85);
+    background-color: rgba(15, 23, 42, 0.9);
     position: sticky;
     top: 0;
+    z-index: 1000;
+}
+
+body.dark-mode .navbar {
+    background-color: #111111;
 }
 
 .nav-links {
@@ -53,6 +65,11 @@ body {
 h1 {
     color: #38bdf8;
     text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+body.dark-mode h1 {
+    color: #ffffff;
+    text-shadow: none;
 }
 
 h2 {
@@ -85,6 +102,12 @@ section {
     padding: 20px;
     background: rgba(255,255,255,0.05);
     border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .card {
+    background: #111111;
+    border: 1px solid #222;
 }
 
 /* BUTTONS */
@@ -98,11 +121,16 @@ button {
     cursor: pointer;
 }
 
+body.dark-mode button {
+    background: #ffffff;
+    color: black;
+}
+
 input {
     padding: 6px;
 }
 
-/* REVEAL */
+/* REVEAL ANIMATION */
 
 .reveal {
     opacity: 0;
@@ -115,14 +143,9 @@ input {
     transform: translateY(0);
 }
 
-/* LIGHT MODE */
+/* FOOTER */
 
-.light-mode {
-    background: white !important;
-    animation: none;
-    color: black;
-}
-
-.light-mode .navbar {
-    background: #f1f5f9;
+footer {
+    text-align: center;
+    padding: 30px 0;
 }
