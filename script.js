@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     // ========================
-    // SCROLL REVEAL
+    // SCROLL REVEAL (FIXED)
     // ========================
 
     function revealOnScroll() {
@@ -13,11 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (elementTop < windowHeight - 100) {
                 element.classList.add("active");
+            } else {
+                element.classList.remove("active");
             }
         });
     }
 
     window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("resize", revealOnScroll);
     revealOnScroll();
 
     // ========================
@@ -40,14 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // ========================
-    // THEME TOGGLE
+    // THEME TOGGLE (FIXED ICON)
     // ========================
 
     const themeToggle = document.getElementById("themeToggle");
 
     if (themeToggle) {
         themeToggle.addEventListener("click", () => {
-            document.body.classList.toggle("light-mode");
+
+            document.body.classList.toggle("dark-mode");
+
+            if (document.body.classList.contains("dark-mode")) {
+                themeToggle.textContent = "☀️";
+            } else {
+                themeToggle.textContent = "🌙";
+            }
         });
     }
 
@@ -101,109 +111,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
         type();
     }
-
-    // ========================
-    // DASHBOARD SYSTEM (SAFE)
-    // ========================
-
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    let timeLeft = 1500;
-    let timerInterval = null;
-
-    const taskInput = document.getElementById("taskInput");
-    const addTaskBtn = document.getElementById("addTaskBtn");
-    const taskList = document.getElementById("taskList");
-    const taskCounter = document.getElementById("taskCounter");
-
-    const timerDisplay = document.getElementById("timerDisplay");
-    const startTimer = document.getElementById("startTimer");
-    const resetTimer = document.getElementById("resetTimer");
-
-    function saveTasks() {
-        localStorage.setItem("tasks", JSON.stringify(tasks));
-    }
-
-    function updateCounter() {
-        if (!taskCounter) return;
-        const completed = tasks.filter(task => task.completed).length;
-        taskCounter.textContent = completed;
-    }
-
-    function renderTasks() {
-        if (!taskList) return;
-
-        taskList.innerHTML = "";
-
-        tasks.forEach((task, index) => {
-            const li = document.createElement("li");
-            li.textContent = task.text;
-
-            if (task.completed) {
-                li.style.textDecoration = "line-through";
-                li.style.opacity = "0.6";
-            }
-
-            li.addEventListener("click", () => {
-                tasks[index].completed = !tasks[index].completed;
-                saveTasks();
-                renderTasks();
-            });
-
-            taskList.appendChild(li);
-        });
-
-        updateCounter();
-    }
-
-    if (addTaskBtn && taskInput) {
-        addTaskBtn.addEventListener("click", () => {
-            const text = taskInput.value.trim();
-            if (text === "") return;
-
-            tasks.push({ text, completed: false });
-            taskInput.value = "";
-            saveTasks();
-            renderTasks();
-        });
-    }
-
-    function updateTimer() {
-        if (!timerDisplay) return;
-
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-
-        timerDisplay.textContent =
-            `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    }
-
-    if (startTimer) {
-        startTimer.addEventListener("click", () => {
-            if (timerInterval) return;
-
-            timerInterval = setInterval(() => {
-                if (timeLeft > 0) {
-                    timeLeft--;
-                    updateTimer();
-                } else {
-                    clearInterval(timerInterval);
-                    timerInterval = null;
-                    alert("Session Complete.");
-                }
-            }, 1000);
-        });
-    }
-
-    if (resetTimer) {
-        resetTimer.addEventListener("click", () => {
-            clearInterval(timerInterval);
-            timerInterval = null;
-            timeLeft = 1500;
-            updateTimer();
-        });
-    }
-
-    renderTasks();
-    updateTimer();
 
 });
