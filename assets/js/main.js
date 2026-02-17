@@ -62,3 +62,27 @@
   window.DevSite = window.DevSite || {};
   window.DevSite.App = App;
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("Portfolio loaded successfully.");
+
+  const button = document.querySelector("button");
+
+  if (button) {
+    button.addEventListener("click", function () {
+      alert("Welcome to my portfolio 🚀");
+    });
+  }
+});
