@@ -1,55 +1,54 @@
 // DevSite Main Module - Core platform initialization and navigation
-(function() {
+(function () {
   'use strict';
 
   const App = {
     init() {
       this.setupNavigation();
-      this.setupDOM();
-      console.log('DevSite Platform initialized - v1.0');
+      this.setupButton();
+      this.setActiveNavLink();
+      console.log('DevSite Platform initialized - v1.1');
     },
 
     setupNavigation() {
       const navToggle = document.getElementById('navToggle');
       const navMenu = document.getElementById('navMenu');
 
-      if (navToggle) {
-        navToggle.addEventListener('click', () => {
-          navMenu.classList.toggle('active');
-          navToggle.classList.toggle('active');
-        });
+      if (!navToggle || !navMenu) return;
 
-        const navLinks = navMenu.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            navToggle.classList.remove('active');
-          });
-        });
-      }
+      navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+      });
 
-      this.setActiveNavLink();
-    },
-
-    setActiveNavLink() {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const navLinks = document.querySelectorAll('.nav-link');
-
+      const navLinks = navMenu.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
-        const href = link.getAttribute('href').split('/').pop();
-        if (href === currentPage) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        });
       });
     },
 
-    setupDOM() {
-      if (!document.body) {
-        console.error('Document body not found');
-        return;
-      }
+    setActiveNavLink() {
+      const currentPage =
+        window.location.pathname.split('/').pop() || 'index.html';
+
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href')?.split('/').pop();
+        link.classList.toggle('active', href === currentPage);
+      });
+    },
+
+    setupButton() {
+      const button = document.querySelector('button');
+      if (!button) return;
+
+      button.addEventListener('click', () => {
+        alert('Welcome to my portfolio 🚀');
+      });
     }
   };
 
@@ -62,16 +61,3 @@
   window.DevSite = window.DevSite || {};
   window.DevSite.App = App;
 })();
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("Portfolio loaded successfully.");
-
-  const button = document.querySelector("button");
-
-  if (button) {
-    button.addEventListener("click", function () {
-      alert("Welcome to my portfolio 🚀");
-    });
-  }
-});
