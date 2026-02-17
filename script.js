@@ -1,7 +1,3 @@
-// ========================
-// SAFE DOM READY WRAPPER
-// ========================
-
 document.addEventListener("DOMContentLoaded", function () {
 
     // ========================
@@ -14,9 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
         reveals.forEach((element) => {
             const windowHeight = window.innerHeight;
             const elementTop = element.getBoundingClientRect().top;
-            const revealPoint = 100;
 
-            if (elementTop < windowHeight - revealPoint) {
+            if (elementTop < windowHeight - 100) {
                 element.classList.add("active");
             }
         });
@@ -24,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
-
 
     // ========================
     // SEARCH SYSTEM
@@ -39,16 +33,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             sections.forEach(section => {
                 const text = section.textContent.toLowerCase();
-
-                if (query === "" || text.includes(query)) {
-                    section.style.display = "";
-                } else {
-                    section.style.display = "none";
-                }
+                section.style.display =
+                    query === "" || text.includes(query) ? "" : "none";
             });
         });
     }
-
 
     // ========================
     // THEME TOGGLE
@@ -61,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
             document.body.classList.toggle("light-mode");
         });
     }
-
 
     // ========================
     // MOBILE MENU
@@ -76,6 +64,43 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // ========================
+    // TYPING EFFECT
+    // ========================
+
+    const typingElement = document.getElementById("typing");
+
+    if (typingElement) {
+        const words = ["a Developer.", "a Builder.", "Focused.", "Consistent."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+
+            if (!isDeleting) {
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex++);
+                if (charIndex > currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1000);
+                    return;
+                }
+            } else {
+                typingElement.textContent =
+                    currentWord.substring(0, charIndex--);
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+            }
+
+            setTimeout(type, isDeleting ? 50 : 100);
+        }
+
+        type();
+    }
 
     // ========================
     // DASHBOARD SYSTEM (SAFE)
@@ -135,11 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const text = taskInput.value.trim();
             if (text === "") return;
 
-            tasks.push({
-                text: text,
-                completed: false
-            });
-
+            tasks.push({ text, completed: false });
             taskInput.value = "";
             saveTasks();
             renderTasks();
@@ -167,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     clearInterval(timerInterval);
                     timerInterval = null;
-                    alert("Session Complete. Take a short break.");
+                    alert("Session Complete.");
                 }
             }, 1000);
         });
