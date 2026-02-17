@@ -4,7 +4,6 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
     color: #ffffff;
     min-height: 100vh;
@@ -49,6 +48,17 @@ body {
     display: none;
 }
 
+/* HEADINGS */
+
+h1 {
+    color: #38bdf8;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+}
+
+h2 {
+    color: #facc15;
+}
+
 /* SECTIONS */
 
 section {
@@ -77,14 +87,7 @@ section {
     border-radius: 12px;
 }
 
-/* DASHBOARD */
-
-.dashboard-box {
-    margin-top: 20px;
-    padding: 20px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 10px;
-}
+/* BUTTONS */
 
 button {
     padding: 8px 14px;
@@ -99,21 +102,17 @@ input {
     padding: 6px;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 6px 0;
-    cursor: pointer;
-}
-
 /* REVEAL */
 
 .reveal {
-    opacity: 1;   /* changed so nothing stays hidden */
-    transform: none;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* LIGHT MODE */
@@ -122,4 +121,8 @@ li {
     background: white !important;
     animation: none;
     color: black;
+}
+
+.light-mode .navbar {
+    background: #f1f5f9;
 }
