@@ -1,124 +1,118 @@
 // ========================
-// NAVBAR TOGGLE
+// STATE
 // ========================
 
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links');
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let timeLeft = 1500; // 25 minutes
+let timerInterval = null;
 
-if (menuBtn && navLinks) {
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+// ========================
+// DOM ELEMENTS
+// ========================
+
+const taskInput = document.getElementById("taskInput");
+const addTaskBtn = document.getElementById("addTaskBtn");
+const taskList = document.getElementById("taskList");
+const taskCounter = document.getElementById("taskCounter");
+
+const timerDisplay = document.getElementById("timerDisplay");
+const startTimer = document.getElementById("startTimer");
+const resetTimer = document.getElementById("resetTimer");
+
+// ========================
+// TASK SYSTEM
+// ========================
+
+function saveTasks() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-
-// ========================
-// THEME TOGGLE + PERSISTENCE
-// ========================
-
-const toggleButton = document.getElementById("themeToggle");
-
-function applyTheme(theme) {
-    if (theme === "light") {
-        document.body.classList.add("light-mode");
-        if (toggleButton) toggleButton.textContent = "☀️";
-    } else {
-        document.body.classList.remove("light-mode");
-        if (toggleButton) toggleButton.textContent = "🌙";
-    }
+function updateCounter() {
+    const completed = tasks.filter(task => task.completed).length;
+    taskCounter.textContent = completed;
 }
 
-const savedTheme = localStorage.getItem("theme") || "dark";
-applyTheme(savedTheme);
+function renderTasks() {
+    taskList.innerHTML = "";
 
-if (toggleButton) {
-    toggleButton.addEventListener("click", () => {
-        const isLight = document.body.classList.contains("light-mode");
-        const newTheme = isLight ? "dark" : "light";
+    tasks.forEach((task, index) => {
+        const li = document.createElement("li");
+        li.textContent = task.text;
 
-        applyTheme(newTheme);
-        localStorage.setItem("theme", newTheme);
-    });
-}
-
-
-// ========================
-// SCROLL REVEAL
-// ========================
-
-function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal');
-    const windowHeight = window.innerHeight;
-
-    reveals.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const revealPoint = 100;
-
-        if (elementTop < windowHeight - revealPoint) {
-            element.classList.add('active');
+        if (task.completed) {
+            li.style.textDecoration = "line-through";
+            li.style.opacity = "0.6";
         }
-    });
-}
 
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-
-// ========================
-// TYPING EFFECT (IMPROVED)
-// ========================
-
-const textArray = ["Developer", "Creator", "Gamer"];
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-function typeEffect() {
-    const typingElement = document.getElementById("typing");
-    if (!typingElement) return;
-
-    const currentText = textArray[textIndex];
-
-    if (!isDeleting) {
-        typingElement.textContent = currentText.slice(0, charIndex++);
-        if (charIndex > currentText.length) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1000); // pause at full word
-            return;
-        }
-    } else {
-        typingElement.textContent = currentText.slice(0, charIndex--);
-        if (charIndex < 0) {
-            isDeleting = false;
-            textIndex = (textIndex + 1) % textArray.length;
-        }
-    }
-
-    setTimeout(typeEffect, isDeleting ? 60 : 100);
-}
-
-typeEffect();
-
-
-// ========================
-// LIVE SEARCH (CLEANER)
-// ========================
-
-const searchInput = document.getElementById("searchInput");
-
-if (searchInput) {
-    searchInput.addEventListener("input", function () {
-        const query = this.value.toLowerCase().trim();
-        const sections = document.querySelectorAll("main section");
-
-        sections.forEach(section => {
-            const text = section.textContent.toLowerCase();
-
-            if (query === "" || text.includes(query)) {
-                section.style.display = "";
-            } else {
-                section.style.display = "none";
-            }
+        li.addEventListener("click", () => {
+            tasks[index].completed = !tasks[index].completed;
+            saveTasks();
+            renderTasks();
         });
+
+        taskList.appendChild(li);
+    });
+
+    updateCounter();
+}
+
+if (addTaskBtn) {
+    addTaskBtn.addEventListener("click", () => {
+        const text = taskInput.value.trim();
+        if (text === "") return;
+
+        tasks.push({
+            text: text,
+            completed: false
+        });
+
+        taskInput.value = "";
+        saveTasks();
+        renderTasks();
     });
 }
+
+// ========================
+// TIMER SYSTEM
+// ========================
+
+function updateTimer() {
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+
+    timerDisplay.textContent =
+        `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+if (startTimer) {
+    startTimer.addEventListener("click", () => {
+        if (timerInterval) return;
+
+        timerInterval = setInterval(() => {
+            if (timeLeft > 0) {
+                timeLeft--;
+                updateTimer();
+            } else {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                alert("Session Complete. Take a short break.");
+            }
+        }, 1000);
+    });
+}
+
+if (resetTimer) {
+    resetTimer.addEventListener("click", () => {
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timeLeft = 1500;
+        updateTimer();
+    });
+}
+
+// ========================
+// INITIAL LOAD
+// ========================
+
+renderTasks();
+updateTimer();
