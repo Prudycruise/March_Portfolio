@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Prudy | Software Developer Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Prudy - Future Software Developer building Rydez Empire through code and creativity.">
-    <title>Prudy | Software Developer Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,9 +12,7 @@
 
 <header>
     <nav class="navbar">
-        <h3 class="logo">Prudy.dev</h3>
-
-        <button class="menu-btn" aria-label="Toggle navigation">☰</button>
+        <div class="logo">Prudy.dev</div>
 
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -24,30 +22,37 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <button id="themeToggle">🌙</button>
-        <input type="text" id="searchInput" placeholder="Search..." />
+        <div style="display:flex; gap:10px; align-items:center;">
+            <button id="themeToggle">🌙</button>
+            <input type="text" id="searchInput" placeholder="Search...">
+        </div>
     </nav>
 </header>
 
-<main class="container">
+<main>
 
+    <!-- HERO -->
     <section id="home" class="hero reveal">
         <h1>Prudy — I am <span id="typing"></span></h1>
-        <p class="subtitle">Future Software Developer & Builder.</p>
+        <p>Future Software Developer & Builder.</p>
 
         <h2>Mission</h2>
         <p>
-            I am building Rydez Empire through code, creativity, discipline, and long-term vision.
+            I am building Rydez Empire through code, creativity,
+            discipline, and long-term vision.
         </p>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="reveal">
         <h2>About Me</h2>
         <p>
-            I am a student developer building real-world projects step by step. I focus on fundamentals, consistency, and long-term mastery.
+            I am a student developer building real-world projects step by step.
+            I focus on fundamentals, consistency, and long-term mastery.
         </p>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="reveal">
         <h2>Skills</h2>
         <ul>
@@ -58,24 +63,30 @@
         </ul>
     </section>
 
+    <!-- FOCUS + GOALS -->
     <section class="card-section reveal">
-        <article class="card">
+        <div class="card">
             <h3>Current Focus</h3>
-            <p>Mastering core web development and building functional applications.</p>
-        </article>
+            <p>
+                Mastering core web development and building functional applications.
+            </p>
+        </div>
 
-        <article class="card">
+        <div class="card">
             <h3>Next Goal</h3>
-            <p>Deploying live projects and integrating productivity systems.</p>
-        </article>
+            <p>
+                Deploying live projects and integrating productivity systems.
+            </p>
+        </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects" class="reveal">
         <h2>Projects</h2>
 
         <div class="card-section">
 
-            <article class="card">
+            <div class="card">
                 <h3>Student Productivity Dashboard</h3>
                 <p>
                     A personal productivity web app featuring a task manager,
@@ -84,19 +95,26 @@
                 <a href="student-dashboard.html">
                     <button>View Project</button>
                 </a>
-            </article>
+            </div>
 
-            <article class="card">
+            <div class="card">
                 <h3>More Projects Coming</h3>
-                <p>Additional web apps and experimental builds in progress.</p>
-            </article>
+                <p>
+                    Additional web apps and experimental builds in progress.
+                </p>
+            </div>
 
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="reveal">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:prudycruise27@gmail.com">prudycruise27@gmail.com</a></p>
+        <p>Email:
+            <a href="mailto:prudycruise27@gmail.com">
+                prudycruise27@gmail.com
+            </a>
+        </p>
     </section>
 
 </main>
@@ -105,7 +123,7 @@
     <p>© 2026 Prudy.dev — Built with consistency.</p>
 </footer>
 
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 
 </body>
 </html>
