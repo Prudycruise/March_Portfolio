@@ -1,129 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Prudy | Software Developer Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prudy - Future Software Developer building Rydez Empire through code and creativity.">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prudy DevSite</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#0f172a;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#1e293b;
+}
+
+nav a{
+margin-left:15px;
+text-decoration:none;
+color:#38bdf8;
+font-weight:bold;
+}
+
+nav a:hover{
+color:white;
+}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.section{
+padding:60px 20px;
+border-top:1px solid #334155;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+margin:15px 0;
+border-radius:8px;
+}
+
+button{
+padding:10px 15px;
+background:#38bdf8;
+border:none;
+color:black;
+font-weight:bold;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:white;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <nav class="navbar">
-        <div class="logo">Prudy.dev</div>
-
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <div style="display:flex; gap:10px; align-items:center;">
-            <button id="themeToggle">🌙</button>
-            <input type="text" id="searchInput" placeholder="Search...">
-        </div>
-    </nav>
+<h2>PRUDY DEV</h2>
+<nav>
+<a href="#codelab">CodeLab</a>
+<a href="#lifegames">Life Games</a>
+<a href="#arena">3D Arena</a>
+<a href="#languages">Languages</a>
+<a href="#news">Updates</a>
+</nav>
 </header>
 
-<main>
+<section class="hero">
+<h1>Build. Learn. Execute.</h1>
+<p>Official development hub for experiments, systems and interactive learning.</p>
+</section>
 
-    <!-- HERO -->
-    <section id="home" class="hero reveal">
-        <h1>Prudy — I am <span id="typing"></span></h1>
-        <p>Future Software Developer & Builder.</p>
+<section id="codelab" class="section">
+<h2>CodeLab</h2>
+<div class="card">
+<p>Learn Python, JavaScript and more through guided interactive challenges.</p>
+<button>Coming Soon</button>
+</div>
+</section>
 
-        <h2>Mission</h2>
-        <p>
-            I am building Rydez Empire through code, creativity,
-            discipline, and long-term vision.
-        </p>
-    </section>
+<section id="lifegames" class="section">
+<h2>Life Games</h2>
+<div class="card">
+<p>Driving school simulations, maths training, and practical life-based games.</p>
+<button>Coming Soon</button>
+</div>
+</section>
 
-    <!-- ABOUT -->
-    <section id="about" class="reveal">
-        <h2>About Me</h2>
-        <p>
-            I am a student developer building real-world projects step by step.
-            I focus on fundamentals, consistency, and long-term mastery.
-        </p>
-    </section>
+<section id="arena" class="section">
+<h2>3D Arena</h2>
+<div class="card">
+<p>Future 3D interactive games powered by WebGL and game engines.</p>
+<button>Under Development</button>
+</div>
+</section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="reveal">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python (Foundations)</li>
-            <li>HTML (Fundamentals)</li>
-            <li>CSS (Responsive Layouts)</li>
-            <li>JavaScript (DOM & Interactivity)</li>
-        </ul>
-    </section>
+<section id="languages" class="section">
+<h2>Languages</h2>
+<div class="card">
+<p>Learn programming and real-world languages in structured modules.</p>
+<button>Coming Soon</button>
+</div>
+</section>
 
-    <!-- FOCUS + GOALS -->
-    <section class="card-section reveal">
-        <div class="card">
-            <h3>Current Focus</h3>
-            <p>
-                Mastering core web development and building functional applications.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Next Goal</h3>
-            <p>
-                Deploying live projects and integrating productivity systems.
-            </p>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-        <h2>Projects</h2>
-
-        <div class="card-section">
-
-            <div class="card">
-                <h3>Student Productivity Dashboard</h3>
-                <p>
-                    A personal productivity web app featuring a task manager,
-                    study timer, and progress tracking system.
-                </p>
-                <a href="student-dashboard.html">
-                    <button>View Project</button>
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>More Projects Coming</h3>
-                <p>
-                    Additional web apps and experimental builds in progress.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="reveal">
-        <h2>Contact</h2>
-        <p>Email:
-            <a href="mailto:prudycruise27@gmail.com">
-                prudycruise27@gmail.com
-            </a>
-        </p>
-    </section>
-
-</main>
-
-<footer class="reveal">
-    <p>© 2026 Prudy.dev — Built with consistency.</p>
-</footer>
-
-<script src="script.js"></script>
+<section id="news" class="section">
+<h2>News & Updates</h2>
+<div class="card">
+<p>Version 1.0 – Base DevSite Structure Launched.</p>
+</div>
+</section>
 
 </body>
 </html>
