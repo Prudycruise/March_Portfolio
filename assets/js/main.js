@@ -43,7 +43,8 @@
     },
 
     setupButton() {
-      const button = document.querySelector('button');
+      // FIX: do NOT bind to the first <button> on the page (theme buttons live there).
+      const button = document.getElementById('welcomeBtn');
       if (!button) return;
 
       button.addEventListener('click', () => {
