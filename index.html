@@ -9,18 +9,15 @@
 
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/theme.js" defer></script>
-
-  <!-- These were missing; now you will create them -->
   <script src="assets/js/reveal.js" defer></script>
   <script src="assets/js/search.js" defer></script>
-
-  <!-- IMPORTANT: keeps your automatic typing + original systems permanent -->
   <script src="script.js" defer></script>
 </head>
 
-<body>
+<body data-theme="ocean">
   <header>
     <h2>PRUDY DEV</h2>
+
     <nav>
       <a href="#codelab">CodeLab</a>
       <a href="#lifegames">Life Games</a>
@@ -28,10 +25,10 @@
       <a href="#languages">Languages</a>
       <a href="#news">Updates</a>
 
-      <!-- for assets/js/theme.js (6 themes) -->
-      <button id="themeCycleBtn" class="theme-btn" type="button" aria-label="Change theme">🌙</button>
+      <!-- 6-theme cycler -->
+      <button id="themeCycleBtn" class="theme-btn" type="button" aria-label="Cycle theme">🌙</button>
 
-      <!-- for script.js dark-mode toggle if you still use it -->
+      <!-- High-contrast dark mode (pure black + gold) -->
       <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌙</button>
     </nav>
   </header>
@@ -39,23 +36,37 @@
   <section class="hero reveal">
     <h1>Build. Learn. Execute.</h1>
 
-    <!-- typing target for your script.js typing effect -->
     <p>
       Official development hub for experiments, systems and interactive learning —
       <span id="typing"></span>
     </p>
+
+    <!-- Optional search (activates assets/js/search.js) -->
+    <p style="margin-top:16px;">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search sections…"
+        style="
+          width: min(520px, 92%);
+          padding: 10px 12px;
+          border-radius: 12px;
+          border: 1px solid rgba(255,255,255,0.18);
+          background: rgba(0,0,0,0.25);
+          color: inherit;
+          outline: none;
+        "
+      />
+    </p>
   </section>
-  
-  <p>
-  <span class="autoType"
-        data-words="Learn Python.,Learn JavaScript.,Solve challenges.">
-  </span>
-</p>
 
   <section id="codelab" class="section reveal">
     <h2>CodeLab</h2>
     <div class="card">
-      <p>Learn Python, JavaScript and more through guided interactive challenges.</p>
+      <p>
+        <span class="autoType"
+          data-words="Learn Python.,Learn JavaScript.,Solve guided challenges.,Build mini-projects."></span>
+      </p>
       <button>Coming Soon</button>
     </div>
   </section>
@@ -63,7 +74,10 @@
   <section id="lifegames" class="section reveal">
     <h2>Life Games</h2>
     <div class="card">
-      <p>Driving school simulations, maths training, and practical life-based games.</p>
+      <p>
+        <span class="autoType"
+          data-words="Driving school simulations.,Maths training games.,Practical life-based challenges.,Level up skills fast."></span>
+      </p>
       <button>Coming Soon</button>
     </div>
   </section>
@@ -71,7 +85,10 @@
   <section id="arena" class="section reveal">
     <h2>3D Arena</h2>
     <div class="card">
-      <p>Future 3D interactive games powered by WebGL and game engines.</p>
+      <p>
+        <span class="autoType"
+          data-words="WebGL experiments.,3D interactive worlds.,Game mechanics testing.,Next-gen prototypes."></span>
+      </p>
       <button>Under Development</button>
     </div>
   </section>
@@ -79,7 +96,10 @@
   <section id="languages" class="section reveal">
     <h2>Languages</h2>
     <div class="card">
-      <p>Learn programming and real-world languages in structured modules.</p>
+      <p>
+        <span class="autoType"
+          data-words="Programming languages.,Real-world languages.,Structured modules.,Learn at your pace."></span>
+      </p>
       <button>Coming Soon</button>
     </div>
   </section>
@@ -87,7 +107,10 @@
   <section id="news" class="section reveal">
     <h2>News &amp; Updates</h2>
     <div class="card">
-      <p>Version 1.0 – Base DevSite Structure Launched.</p>
+      <p>
+        <span class="autoType"
+          data-words="Version 1.0 launched.,Theme system upgraded.,Typing automation locked.,More drops incoming."></span>
+      </p>
     </div>
   </section>
 </body>
