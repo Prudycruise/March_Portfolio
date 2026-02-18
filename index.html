@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prudy DevSite</title>
 
-  <!-- Step 1: Use the structured stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Step 1: Use structured JS paths (safe even if files are placeholders) -->
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/theme.js" defer></script>
+
+  <!-- These were missing; now you will create them -->
   <script src="assets/js/reveal.js" defer></script>
   <script src="assets/js/search.js" defer></script>
+
+  <!-- IMPORTANT: keeps your automatic typing + original systems permanent -->
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -24,15 +27,26 @@
       <a href="#arena">3D Arena</a>
       <a href="#languages">Languages</a>
       <a href="#news">Updates</a>
+
+      <!-- for assets/js/theme.js (6 themes) -->
+      <button id="themeCycleBtn" class="theme-btn" type="button" aria-label="Change theme">🌙</button>
+
+      <!-- for script.js dark-mode toggle if you still use it -->
+      <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌙</button>
     </nav>
   </header>
 
-  <section class="hero">
+  <section class="hero reveal">
     <h1>Build. Learn. Execute.</h1>
-    <p>Official development hub for experiments, systems and interactive learning.</p>
+
+    <!-- typing target for your script.js typing effect -->
+    <p>
+      Official development hub for experiments, systems and interactive learning —
+      <span id="typing"></span>
+    </p>
   </section>
 
-  <section id="codelab" class="section">
+  <section id="codelab" class="section reveal">
     <h2>CodeLab</h2>
     <div class="card">
       <p>Learn Python, JavaScript and more through guided interactive challenges.</p>
@@ -40,7 +54,7 @@
     </div>
   </section>
 
-  <section id="lifegames" class="section">
+  <section id="lifegames" class="section reveal">
     <h2>Life Games</h2>
     <div class="card">
       <p>Driving school simulations, maths training, and practical life-based games.</p>
@@ -48,7 +62,7 @@
     </div>
   </section>
 
-  <section id="arena" class="section">
+  <section id="arena" class="section reveal">
     <h2>3D Arena</h2>
     <div class="card">
       <p>Future 3D interactive games powered by WebGL and game engines.</p>
@@ -56,7 +70,7 @@
     </div>
   </section>
 
-  <section id="languages" class="section">
+  <section id="languages" class="section reveal">
     <h2>Languages</h2>
     <div class="card">
       <p>Learn programming and real-world languages in structured modules.</p>
@@ -64,7 +78,7 @@
     </div>
   </section>
 
-  <section id="news" class="section">
+  <section id="news" class="section reveal">
     <h2>News &amp; Updates</h2>
     <div class="card">
       <p>Version 1.0 – Base DevSite Structure Launched.</p>
