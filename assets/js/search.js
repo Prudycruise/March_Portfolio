@@ -11,15 +11,18 @@
     const searchInput = document.getElementById("searchInput");
     if (!searchInput) return;
 
+    // IMPORTANT:
+    // Your search bar is inside the hero section.
+    // So we must NOT hide the hero section, otherwise the input disappears.
+    const sections = Array.from(document.querySelectorAll("section"))
+      .filter((section) => !section.classList.contains("hero"));
+
     searchInput.addEventListener("input", function () {
       const query = this.value.toLowerCase().trim();
 
-      // Works whether you wrap sections in <main> or not.
-      const sections = document.querySelectorAll("section");
-
       sections.forEach((section) => {
         const text = section.textContent.toLowerCase();
-        section.style.display = query === "" || text.includes(query) ? "" : "none";
+        section.style.display = (query === "" || text.includes(query)) ? "" : "none";
       });
     });
   }
