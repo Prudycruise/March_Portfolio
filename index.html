@@ -18,30 +18,35 @@
   <header>
     <h2>PRUDY DEV</h2>
 
-    <nav>
-      <a href="#codelab">CodeLab</a>
-      <a href="#lifegames">Life Games</a>
-      <a href="#arena">3D Arena</a>
-      <a href="#languages">Languages</a>
-      <a href="#news">Updates</a>
+    <!-- ≡ mobile dropdown -->
+    <button id="navToggle" type="button" aria-label="Menu">≡</button>
 
-      <!-- 6-theme cycler -->
+    <nav id="navMenu">
+      <!-- HOME ICON -->
+      <a href="#home" class="nav-link" aria-label="Home">🏠 Home</a>
+
+      <a href="#codelab" class="nav-link">CodeLab</a>
+      <a href="#lifegames" class="nav-link">Life Games</a>
+      <a href="#arena" class="nav-link">3D Arena</a>
+      <a href="#languages" class="nav-link">Languages</a>
+      <a href="#news" class="nav-link">Updates</a>
+      <a href="#contact" class="nav-link">Contact</a>
+
+      <!-- theme cycle + dark mode -->
       <button id="themeCycleBtn" class="theme-btn" type="button" aria-label="Cycle theme">🌙</button>
-
-      <!-- High-contrast dark mode (pure black + gold) -->
-      <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌙</button>
+      <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌞</button>
     </nav>
   </header>
 
-  <section class="hero reveal">
+  <section id="home" class="hero reveal">
     <h1>Build. Learn. Execute.</h1>
 
-    <p>
-      Official development hub for experiments, systems and interactive learning —
+    <p class="typingWrap">
+      <span>Official development hub for experiments, systems and interactive learning —</span>
       <span id="typing"></span>
+      <span class="typingCircle" aria-hidden="true"></span>
     </p>
 
-    <!-- Optional search (activates assets/js/search.js) -->
     <p style="margin-top:16px;">
       <input
         id="searchInput"
@@ -61,57 +66,62 @@
   </section>
 
   <section id="codelab" class="section reveal">
-    <h2>CodeLab</h2>
+    <h2 class="section-title"><span class="section-icon">🧪</span> CodeLab</h2>
     <div class="card">
-      <p>
-        <span class="autoType"
-          data-words="Learn Python.,Learn JavaScript.,Solve guided challenges.,Build mini-projects."></span>
-      </p>
+      <p><span class="autoType" data-words="Build mini-projects.,Learn Python.,Learn JavaScript.,Solve guided challenges."></span></p>
       <button>Coming Soon</button>
     </div>
   </section>
 
   <section id="lifegames" class="section reveal">
-    <h2>Life Games</h2>
+    <h2 class="section-title"><span class="section-icon">🎮</span> Life Games</h2>
     <div class="card">
-      <p>
-        <span class="autoType"
-          data-words="Driving school simulations.,Maths training games.,Practical life-based challenges.,Level up skills fast."></span>
-      </p>
+      <p><span class="autoType" data-words="Level up life skills.,Driving simulations.,Maths training.,Real-world challenges."></span></p>
       <button>Coming Soon</button>
     </div>
   </section>
 
   <section id="arena" class="section reveal">
-    <h2>3D Arena</h2>
+    <h2 class="section-title"><span class="section-icon">🕹️</span> 3D Arena</h2>
     <div class="card">
-      <p>
-        <span class="autoType"
-          data-words="WebGL experiments.,3D interactive worlds.,Game mechanics testing.,Next-gen prototypes."></span>
-      </p>
+      <p><span class="autoType" data-words="WebGL experiments.,3D interactive worlds.,Prototype mechanics.,Next-gen builds."></span></p>
       <button>Under Development</button>
     </div>
   </section>
 
   <section id="languages" class="section reveal">
-    <h2>Languages</h2>
+    <h2 class="section-title"><span class="section-icon">🌍</span> Languages</h2>
     <div class="card">
-      <p>
-        <span class="autoType"
-          data-words="Programming languages.,Real-world languages.,Structured modules.,Learn at your pace."></span>
-      </p>
+      <p><span class="autoType" data-words="Structured modules.,Programming languages.,Real-world languages.,Learn at your pace."></span></p>
       <button>Coming Soon</button>
     </div>
   </section>
 
   <section id="news" class="section reveal">
-    <h2>News &amp; Updates</h2>
+    <h2 class="section-title"><span class="section-icon">📰</span> News &amp; Updates</h2>
     <div class="card">
-      <p>
-        <span class="autoType"
-          data-words="Version 1.0 launched.,Theme system upgraded.,Typing automation locked.,More drops incoming."></span>
-      </p>
+      <p><span class="autoType" data-words="Theme system upgraded.,New themes added.,Typing automation locked.,More drops incoming."></span></p>
     </div>
   </section>
+
+  <!-- CONTACT SECTION (RESTORED) -->
+  <section id="contact" class="section reveal">
+    <h2 class="section-title"><span class="section-icon">📩</span> Contact</h2>
+    <div class="card">
+      <p>Want to collaborate or test a build?</p>
+      <p><strong>Email:</strong> <a href="mailto:prudycruise@gmail.com" style="color:inherit;">prudycruise@gmail.com</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Prudycruise" target="_blank" rel="noopener" style="color:inherit;">@Prudycruise</a></p>
+    </div>
+  </section>
+
+  <!-- COPYRIGHT (RESTORED) -->
+  <footer>
+    <p>© <span id="year"></span> PRUDY DEV. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // footer year (tiny helper, safe)
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
