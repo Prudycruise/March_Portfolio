@@ -1,6 +1,4 @@
 // assets/js/search.js
-// Search filter system. Does nothing unless #searchInput exists.
-// Safe guard: avoids double binding.
 (function () {
   "use strict";
 
@@ -11,9 +9,6 @@
     const searchInput = document.getElementById("searchInput");
     if (!searchInput) return;
 
-    // IMPORTANT:
-    // Your search bar is inside the hero section.
-    // So we must NOT hide the hero section, otherwise the input disappears.
     const sections = Array.from(document.querySelectorAll("section"))
       .filter((section) => !section.classList.contains("hero"));
 
