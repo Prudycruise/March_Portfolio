@@ -1,6 +1,4 @@
 // assets/js/reveal.js
-// Adds reveal-on-scroll without conflicting with script.js.
-// Safe guard: will not double-run if script.js already handled it.
 (function () {
   "use strict";
 
@@ -14,13 +12,9 @@
     const windowHeight = window.innerHeight;
 
     reveals.forEach((el) => {
-      const elementTop = el.getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - 100) {
-        el.classList.add("active");
-      } else {
-        el.classList.remove("active");
-      }
+      const top = el.getBoundingClientRect().top;
+      if (top < windowHeight - 100) el.classList.add("active");
+      else el.classList.remove("active");
     });
   }
 
