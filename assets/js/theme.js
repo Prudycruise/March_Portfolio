@@ -1,17 +1,17 @@
 // assets/js/theme.js
-// THEME ENGINE + DARK MODE TOGGLE (mobile-safe)
 (function () {
   "use strict";
 
-  // 6-theme cycler (data-theme system)
-  const themes = ["ocean", "midnight", "gold", "neon", "sunrise", "forest"];
+  const themes = ["ocean", "midnight", "gold", "neon", "sunrise", "forest", "winter", "royal"];
   const icons = {
     ocean: "🌙",
     midnight: "🌑",
     gold: "🏆",
     neon: "💜",
     sunrise: "🌞",
-    forest: "🌿"
+    forest: "🌿",
+    winter: "❄️",
+    royal: "👑"
   };
 
   const themeStorageKey = "devsiteTheme";
@@ -33,9 +33,8 @@
     applyTheme(next);
   }
 
-  // FIX: Icons should represent CURRENT mode (not the next mode).
-  // Dark mode ON  -> 🌙
-  // Dark mode OFF -> 🌞
+  // Dark mode icon shows CURRENT mode:
+  // dark ON -> 🌙, dark OFF -> 🌞
   function syncDarkIcon() {
     if (!darkBtn) return;
     darkBtn.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "🌞";
@@ -55,7 +54,6 @@
   const savedDark = localStorage.getItem(darkStorageKey) === "1";
   setDarkMode(savedDark);
 
-  // Events
   if (cycleBtn) cycleBtn.addEventListener("click", nextTheme);
 
   if (darkBtn) {
