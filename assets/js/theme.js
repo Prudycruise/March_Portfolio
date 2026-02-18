@@ -1,3 +1,4 @@
+// assets/js/theme.js
 // THEME ENGINE + DARK MODE TOGGLE (mobile-safe)
 (function () {
   "use strict";
@@ -32,9 +33,12 @@
     applyTheme(next);
   }
 
+  // FIX: Icons should represent CURRENT mode (not the next mode).
+  // Dark mode ON  -> 🌙
+  // Dark mode OFF -> 🌞
   function syncDarkIcon() {
     if (!darkBtn) return;
-    darkBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    darkBtn.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "🌞";
   }
 
   function setDarkMode(on) {
