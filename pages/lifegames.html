@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite | LifeGames</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">DevSite v1.0</div>
+    <button id="navToggle" class="nav-toggle">☰</button>
+
+    <nav id="navMenu" class="nav-menu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="codelab.html" class="nav-link">CodeLab</a>
+        <a href="lifegames.html" class="nav-link">LifeGames</a>
+        <a href="threearena.html" class="nav-link">ThreeArena</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="changelog.html" class="nav-link">Changelog</a>
+    </nav>
+</header>
+
+<main class="page-container">
+
+    <section class="section">
+        <h1>LifeGames</h1>
+        <p>Skill-building simulations for real-world intelligence.</p>
+    </section>
+
+    <section class="section game-box">
+
+        <h2>Quick Maths Drill</h2>
+        <p id="mathQuestion">Press Start</p>
+
+        <div class="challenge-controls">
+            <button id="startMathBtn">Start</button>
+        </div>
+
+        <input id="mathAnswer" type="number" placeholder="Your answer">
+        <button id="submitMathBtn">Submit</button>
+
+        <div id="mathFeedback" class="feedback"></div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    DevSite v1.0 — LifeGames Module
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/lifegames.js"></script>
+
+</body>
+</html>
