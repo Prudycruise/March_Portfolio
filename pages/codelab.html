@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DevSite | CodeLab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">DevSite v1.0</div>
+
+    <button id="navToggle" class="nav-toggle">☰</button>
+
+    <nav id="navMenu" class="nav-menu">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="codelab.html" class="nav-link">CodeLab</a>
+        <a href="lifegames.html" class="nav-link">LifeGames</a>
+        <a href="threearena.html" class="nav-link">ThreeArena</a>
+        <a href="languages.html" class="nav-link">Languages</a>
+        <a href="changelog.html" class="nav-link">Changelog</a>
+    </nav>
+</header>
+
+<main class="page-container">
+
+    <section class="section">
+        <h1>CodeLab</h1>
+        <p>Interactive JavaScript challenges to sharpen logic and execution.</p>
+    </section>
+
+    <section class="section challenge-box">
+
+        <h2 id="challengeTitle">Challenge 1: Return 5</h2>
+        <p id="challengeDescription">
+            Create a function called <strong>solve</strong> that returns the number 5.
+        </p>
+
+        <textarea id="codeEditor" class="code-editor" spellcheck="false">
+function solve() {
+    
+}
+        </textarea>
+
+        <div class="challenge-controls">
+            <button id="runCodeBtn">Run Code</button>
+            <button id="hintBtn">Hint</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    DevSite v1.0 — CodeLab Module
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/theme.js"></script>
+<script src="../assets/js/reveal.js"></script>
+<script src="../assets/js/search.js"></script>
+<script src="../assets/js/codelab.js"></script>
+
+</body>
+</html>
