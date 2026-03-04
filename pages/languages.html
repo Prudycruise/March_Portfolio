@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevSite | LifeGames</title>
+  <title>DevSite | Languages</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/main.js" defer></script>
   <script src="../assets/js/theme.js" defer></script>
   <script src="../assets/js/reveal.js" defer></script>
   <script src="../assets/js/search.js" defer></script>
-  <script src="../assets/js/lifegames.js" defer></script>
 </head>
 <body>
   <header class="navbar" aria-label="Primary navigation">
@@ -28,34 +27,42 @@
 
   <main class="container">
     <section class="reveal" data-search-item>
-      <h1>LifeGames</h1>
-      <p>Educational mini-game: improve arithmetic fluency with persistent score.</p>
-      <p><strong>Progress score:</strong> <span id="mathScore">0</span></p>
+      <h1>Languages</h1>
+      <p>Overview cards for major programming languages with use-cases and examples.</p>
     </section>
 
     <section class="reveal">
       <label for="searchInput">Search this page</label>
-      <input id="searchInput" type="search" placeholder="Search mini-game content...">
+      <input id="searchInput" type="search" placeholder="Search language cards...">
     </section>
 
-    <section class="card reveal" data-search-item>
-      <h2>Quick Math Quiz</h2>
-      <p id="mathQuestion">Press start to generate a question.</p>
-      <div class="inline-controls">
-        <button id="startMathBtn" class="button" type="button">Start</button>
-      </div>
-      <label for="mathAnswer">Your answer</label>
-      <input id="mathAnswer" type="number" inputmode="numeric" placeholder="Enter answer">
-      <div class="inline-controls">
-        <button id="submitMathBtn" class="button" type="button">Submit</button>
-      </div>
-      <div id="mathFeedback" class="feedback" aria-live="polite">Your score is saved locally in this browser.</div>
+    <section class="grid reveal">
+      <article class="card" data-search-item>
+        <h2>Python</h2>
+        <p>Best for automation, data science, and backend APIs where readability and velocity matter.</p>
+        <p><strong>Use-cases:</strong> Machine learning, scripting, web services.</p>
+        <pre><code>def greet(name: str) -> str:
+    return f"Hello, {name}!"</code></pre>
+      </article>
+      <article class="card" data-search-item>
+        <h2>JavaScript</h2>
+        <p>The language of the browser and modern full-stack apps via Node.js.</p>
+        <p><strong>Use-cases:</strong> UI interactions, APIs, real-time apps.</p>
+        <pre><code>const greet = (name) =&gt; `Hello, ${name}!`;</code></pre>
+      </article>
+      <article class="card" data-search-item>
+        <h2>C++</h2>
+        <p>High-performance systems language used in engines, finance, and low-level tooling.</p>
+        <p><strong>Use-cases:</strong> Game engines, embedded systems, performance-critical apps.</p>
+        <pre><code>#include &lt;iostream&gt;
+int main() { std::cout &lt;&lt; "Hello"; }</code></pre>
+      </article>
     </section>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
-      <span>LifeGames module</span>
+      <span>Languages module</span>
       <span class="version-badge">DevSite v1.0</span>
     </div>
   </footer>

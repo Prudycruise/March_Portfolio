@@ -1,32 +1,27 @@
-// assets/js/reveal.js
-(function () {
-  "use strict";
+(() => {
+  'use strict';
 
-  if (window.__DEV_REVEAL_INSTALLED__) return;
-  window.__DEV_REVEAL_INSTALLED__ = true;
+  const initReveal = () => {
+    const elements = document.querySelectorAll('.reveal');
+    if (!elements.length || !('IntersectionObserver' in window)) {
+      elements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
 
-  function revealOnScroll() {
-    const reveals = document.querySelectorAll(".reveal");
-    if (!reveals.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
 
-    const windowHeight = window.innerHeight;
+    elements.forEach((element) => observer.observe(element));
+  };
 
-    reveals.forEach((el) => {
-      const top = el.getBoundingClientRect().top;
-      if (top < windowHeight - 100) el.classList.add("active");
-      else el.classList.remove("active");
-    });
-  }
-
-  function init() {
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("resize", revealOnScroll);
-    revealOnScroll();
-  }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+  document.addEventListener('DOMContentLoaded', initReveal);
 })();

@@ -1,46 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DevSite | Changelog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSite | Changelog</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/theme.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
+  <script src="../assets/js/search.js" defer></script>
 </head>
 <body>
-
-<header class="navbar">
-    <div class="logo">DevSite v1.0</div>
-    <button id="navToggle" class="nav-toggle">☰</button>
+  <header class="navbar" aria-label="Primary navigation">
+    <div class="logo">DevSite <span class="version-badge">v1.0</span></div>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav id="navMenu" class="nav-menu">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="codelab.html" class="nav-link">CodeLab</a>
-        <a href="lifegames.html" class="nav-link">LifeGames</a>
-        <a href="threearena.html" class="nav-link">ThreeArena</a>
-        <a href="languages.html" class="nav-link">Languages</a>
-        <a href="changelog.html" class="nav-link">Changelog</a>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="codelab.html">CodeLab</a>
+      <a class="nav-link" href="lifegames.html">LifeGames</a>
+      <a class="nav-link" href="threearena.html">ThreeArena</a>
+      <a class="nav-link" href="languages.html">Languages</a>
+      <a class="nav-link" href="changelog.html">Changelog</a>
+      <button id="themeToggle" class="theme-toggle" type="button">☀️ Light</button>
     </nav>
-</header>
+  </header>
 
-<main class="page-container">
+  <main class="container">
+    <section class="reveal" data-search-item>
+      <h1>Changelog</h1>
+      <p>Structured release history for DevSite modules and architecture updates.</p>
+    </section>
 
-    <h1>Changelog</h1>
+    <section class="reveal">
+      <label for="searchInput">Search this page</label>
+      <input id="searchInput" type="search" placeholder="Search changelog entries...">
+    </section>
 
-    <div class="log-entry">
-        <h3>v1.0</h3>
-        <p>Initial DevSite platform release.</p>
-        <ul>
-            <li>CodeLab module</li>
-            <li>LifeGames module</li>
-            <li>ThreeArena 3D engine</li>
-        </ul>
+    <section class="card reveal" data-search-item>
+      <h2>v1.0.0 — 2026-03-04 10:00 UTC</h2>
+      <ul>
+        <li>Shipped modular multi-page DevSite architecture.</li>
+        <li>Added shared theme engine with persisted dark/light mode.</li>
+        <li>Added cross-page search and intersection-observer reveal animations.</li>
+        <li>Added CodeLab challenge runner, LifeGames quiz with persisted score, and ThreeArena cube scene.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Changelog module</span>
+      <span class="version-badge">DevSite v1.0</span>
     </div>
+  </footer>
 
-</main>
-
-<footer class="footer">
-    DevSite v1.0 — Update Logs
-</footer>
-
-<script src="../assets/js/main.js"></script>
+  <a href="../index.html" class="home-fab" aria-label="Back to home">⌂</a>
 </body>
 </html>
