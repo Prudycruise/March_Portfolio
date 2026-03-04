@@ -440,3 +440,39 @@ body.dark .home-icon {
   color: #ffffff;
   box-shadow: 0 0 20px rgba(0,255,200,0.6);
 }
+/* Module pages */
+.page-container{
+  max-width: 920px;
+  margin: 24px auto;
+  padding: 0 18px 40px;
+}
+
+.challenge-controls{
+  display: flex;
+  gap: 10px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.code-editor{
+  width: 100%;
+  min-height: 180px;
+  background: rgba(0,0,0,0.35);
+  color: var(--text);
+  border: 1px solid var(--cardBorder);
+  border-radius: 12px;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.feedback{
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--cardBg);
+  border: 1px solid var(--cardBorder);
+  color: var(--text);
+}
+
+.feedback.success{ border-color: #16a34a; }
+.feedback.error{ border-color: #dc2626; }
