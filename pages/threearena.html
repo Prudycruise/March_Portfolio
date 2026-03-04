@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DevSite | ThreeArena</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSite | ThreeArena</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/theme.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
+  <script src="../assets/js/search.js" defer></script>
+  <script src="../assets/js/threearena.js" defer></script>
 </head>
 <body>
-
-<header class="navbar">
-    <div class="logo">DevSite v1.0</div>
-    <button id="navToggle" class="nav-toggle">☰</button>
+  <header class="navbar" aria-label="Primary navigation">
+    <div class="logo">DevSite <span class="version-badge">v1.0</span></div>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav id="navMenu" class="nav-menu">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="codelab.html" class="nav-link">CodeLab</a>
-        <a href="lifegames.html" class="nav-link">LifeGames</a>
-        <a href="threearena.html" class="nav-link">ThreeArena</a>
-        <a href="languages.html" class="nav-link">Languages</a>
-        <a href="changelog.html" class="nav-link">Changelog</a>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="codelab.html">CodeLab</a>
+      <a class="nav-link" href="lifegames.html">LifeGames</a>
+      <a class="nav-link" href="threearena.html">ThreeArena</a>
+      <a class="nav-link" href="languages.html">Languages</a>
+      <a class="nav-link" href="changelog.html">Changelog</a>
+      <button id="themeToggle" class="theme-toggle" type="button">☀️ Light</button>
     </nav>
-</header>
+  </header>
 
-<main class="page-container">
-    <h1>ThreeArena</h1>
-    <div id="threeContainer" style="width:100%; height:500px;"></div>
-</main>
+  <main class="container">
+    <section class="reveal" data-search-item>
+      <h1>ThreeArena</h1>
+      <p>Interactive 3D scene powered by Three.js. Resize the window to see responsive rendering.</p>
+    </section>
 
-<footer class="footer">
-    DevSite v1.0 — ThreeArena Module
-</footer>
+    <section class="reveal">
+      <label for="searchInput">Search this page</label>
+      <input id="searchInput" type="search" placeholder="Search ThreeArena content...">
+    </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/threearena.js"></script>
+    <section class="reveal card" data-search-item>
+      <h2>3D Canvas</h2>
+      <div id="threeContainer" aria-label="Three.js canvas demo"></div>
+    </section>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>ThreeArena module</span>
+      <span class="version-badge">DevSite v1.0</span>
+    </div>
+  </footer>
+
+  <a href="../index.html" class="home-fab" aria-label="Back to home">⌂</a>
 </body>
 </html>

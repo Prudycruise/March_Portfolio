@@ -1,155 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prudy DevSite</title>
-
-  <link rel="stylesheet" href="assets/css/style.css" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSite | Home</title>
+  <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
   <script src="assets/js/theme.js" defer></script>
   <script src="assets/js/reveal.js" defer></script>
   <script src="assets/js/search.js" defer></script>
-  <script src="script.js" defer></script>
 </head>
-
-<body data-theme="ocean">
-  <header>
-    <h2>PRUDY DEV</h2>
-
-    <button id="navToggle" type="button" aria-label="Menu">≡</button>
-
-    <nav id="navMenu">
-      <a href="#home" class="nav-link" aria-label="Home">Home</a>
-      <a href="#codelab" class="nav-link">CodeLab</a>
-      <a href="#lifegames" class="nav-link">Life Games</a>
-      <a href="#arena" class="nav-link">3D Arena</a>
-      <a href="#languages" class="nav-link">Languages</a>
-      <a href="#news" class="nav-link">Updates</a>
-      <a href="#contact" class="nav-link">Contact</a>
-
-      <button id="themeCycleBtn" class="theme-btn" type="button" aria-label="Cycle theme">🌙</button>
-      <button id="themeToggle" class="theme-btn" type="button" aria-label="Toggle dark mode">🌞</button>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header class="navbar" aria-label="Primary navigation">
+    <div class="logo">DevSite <span class="version-badge">v1.0</span></div>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav id="navMenu" class="nav-menu">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="pages/codelab.html">CodeLab</a>
+      <a class="nav-link" href="pages/lifegames.html">LifeGames</a>
+      <a class="nav-link" href="pages/threearena.html">ThreeArena</a>
+      <a class="nav-link" href="pages/languages.html">Languages</a>
+      <a class="nav-link" href="pages/changelog.html">Changelog</a>
+      <button id="themeToggle" class="theme-toggle" type="button">☀️ Light</button>
     </nav>
   </header>
 
-  <section id="home" class="hero reveal">
-    <h1>Build. Learn. Execute.</h1>
+  <main id="main" class="container">
+    <section class="hero reveal" data-search-item>
+      <h1>Build. Learn. Deploy.</h1>
+      <p>DevSite is a scalable developer platform for coding challenges, educational mini-games, 3D experiments, and language learning workflows.</p>
+      <p>Our mission is to make learning practical through interactive modules and clean architecture.</p>
+    </section>
 
-    <p class="typingWrap">
-      <span>Official development hub for experiments, systems and interactive learning —</span>
-      <span id="typing"></span>
-      <span class="typingCircle" aria-hidden="true"></span>
-    </p>
+    <section class="reveal">
+      <label for="searchInput">Search DevSite content</label>
+      <input id="searchInput" type="search" placeholder="Search pages and modules..." aria-label="Search content across cards">
+    </section>
 
-    <p style="margin-top:16px;">
-      <input id="searchInput" type="search" placeholder="Search sections…" />
-    </p>
-  </section>
+    <section class="reveal">
+      <h2>Modules</h2>
+      <div class="grid">
+        <article class="card" data-search-item>
+          <h3>CodeLab</h3>
+          <p>Practice interactive JavaScript challenges in-browser with instant feedback.</p>
+          <a class="button" href="pages/codelab.html">Open CodeLab</a>
+        </article>
+        <article class="card" data-search-item>
+          <h3>LifeGames</h3>
+          <p>Train your logic with educational mini games and persisted score tracking.</p>
+          <a class="button" href="pages/lifegames.html">Open LifeGames</a>
+        </article>
+        <article class="card" data-search-item>
+          <h3>ThreeArena</h3>
+          <p>Explore a responsive Three.js canvas with a real-time rotating 3D cube.</p>
+          <a class="button" href="pages/threearena.html">Open ThreeArena</a>
+        </article>
+        <article class="card" data-search-item>
+          <h3>Languages</h3>
+          <p>Read language cards with practical use-cases and starter examples.</p>
+          <a class="button" href="pages/languages.html">Open Languages</a>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <section id="codelab" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M9 2h6l1 4h4v4c0 6-4 11-8 12-4-1-8-6-8-12V6h4l1-4z" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      CodeLab
-    </h2>
-    <div class="card">
-      <p><span class="autoType" data-words="Build mini-projects.,Learn Python.,Learn JavaScript.,Solve guided challenges."></span></p>
-      <button>Coming Soon</button>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>DevSite platform</span>
+      <span class="version-badge">DevSite v1.0</span>
     </div>
-  </section>
-
-  <section id="lifegames" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 14l-2 2c-2 0-3-1-3-3V9c0-2 1-3 3-3h2" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M17 14l2 2c2 0 3-1 3-3V9c0-2-1-3-3-3h-2" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M8 9h8v8H8z" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      Life Games
-    </h2>
-    <div class="card">
-      <p><span class="autoType" data-words="Level up life skills.,Driving simulations.,Maths training.,Real-world challenges."></span></p>
-      <button>Coming Soon</button>
-    </div>
-  </section>
-
-  <section id="arena" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2l9 5-9 5-9-5 9-5z" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M3 7v10l9 5 9-5V7" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      3D Arena
-    </h2>
-    <div class="card">
-      <p><span class="autoType" data-words="WebGL experiments.,3D interactive worlds.,Prototype mechanics.,Next-gen builds."></span></p>
-      <button>Under Development</button>
-    </div>
-  </section>
-
-  <section id="languages" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6h16M4 12h10M4 18h16" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M14 12c2 0 4 2 4 4 0 1-1 2-2 2h-2" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      Languages
-    </h2>
-    <div class="card">
-      <p><span class="autoType" data-words="Structured modules.,Programming languages.,Real-world languages.,Learn at your pace."></span></p>
-      <button>Coming Soon</button>
-    </div>
-  </section>
-
-  <section id="news" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M6 4h12v16H6z" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M8 8h8M8 12h8M8 16h6" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      News &amp; Updates
-    </h2>
-    <div class="card">
-      <p><span class="autoType" data-words="Theme system upgraded.,Winter + Royal added.,Mobile nav restored.,More drops incoming."></span></p>
-    </div>
-  </section>
-
-  <section id="contact" class="section reveal">
-    <h2 class="section-title">
-      <span class="section-icon">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2"/>
-          <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2"/>
-        </svg>
-      </span>
-      Contact
-    </h2>
-    <div class="card">
-      <p>Want to collaborate or test a build?</p>
-      <p><strong>Email:</strong> <a href="mailto:prudycruise@gmail.com" style="color:inherit;">prudycruise@gmail.com</a></p>
-      <p><strong>GitHub:</strong> <a href="https://github.com/Prudycruise" target="_blank" rel="noopener" style="color:inherit;">@Prudycruise</a></p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> PRUDY DEV. All rights reserved.</p>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <a href="index.html" class="home-fab" aria-label="Back to home">⌂</a>
 </body>
 </html>

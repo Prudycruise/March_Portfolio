@@ -1,26 +1,23 @@
-// assets/js/main.js
-(function () {
-  "use strict";
+(() => {
+  'use strict';
 
-  function initNav() {
-    const navToggle = document.getElementById("navToggle");
-    const navMenu = document.getElementById("navMenu");
-    if (!navToggle || !navMenu) return;
+  const initNavigation = () => {
+    const toggle = document.getElementById('navToggle');
+    const menu = document.getElementById('navMenu');
+    if (!toggle || !menu) return;
 
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("active");
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    navMenu.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("active");
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
-  }
+  };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initNav);
-  } else {
-    initNav();
-  }
+  document.addEventListener('DOMContentLoaded', initNavigation);
 })();

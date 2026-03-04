@@ -1,68 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>DevSite | CodeLab</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSite | CodeLab</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js" defer></script>
+  <script src="../assets/js/theme.js" defer></script>
+  <script src="../assets/js/reveal.js" defer></script>
+  <script src="../assets/js/search.js" defer></script>
+  <script src="../assets/js/codelab.js" defer></script>
 </head>
 <body>
-
-<header class="navbar">
-    <div class="logo">DevSite v1.0</div>
-
-    <button id="navToggle" class="nav-toggle">☰</button>
-
+  <header class="navbar" aria-label="Primary navigation">
+    <div class="logo">DevSite <span class="version-badge">v1.0</span></div>
+    <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
     <nav id="navMenu" class="nav-menu">
-        <a href="../index.html" class="nav-link">Home</a>
-        <a href="codelab.html" class="nav-link">CodeLab</a>
-        <a href="lifegames.html" class="nav-link">LifeGames</a>
-        <a href="threearena.html" class="nav-link">ThreeArena</a>
-        <a href="languages.html" class="nav-link">Languages</a>
-        <a href="changelog.html" class="nav-link">Changelog</a>
+      <a class="nav-link" href="../index.html">Home</a>
+      <a class="nav-link" href="codelab.html">CodeLab</a>
+      <a class="nav-link" href="lifegames.html">LifeGames</a>
+      <a class="nav-link" href="threearena.html">ThreeArena</a>
+      <a class="nav-link" href="languages.html">Languages</a>
+      <a class="nav-link" href="changelog.html">Changelog</a>
+      <button id="themeToggle" class="theme-toggle" type="button">☀️ Light</button>
     </nav>
-</header>
+  </header>
 
-<main class="page-container">
-
-    <section class="section">
-        <h1>CodeLab</h1>
-        <p>Interactive JavaScript challenges to sharpen logic and execution.</p>
+  <main class="container">
+    <section class="reveal" data-search-item>
+      <h1>CodeLab</h1>
+      <p>Write JavaScript in the editor and run the challenge validator.</p>
     </section>
 
-    <section class="section challenge-box">
-
-        <h2 id="challengeTitle">Challenge 1: Return 5</h2>
-        <p id="challengeDescription">
-            Create a function called <strong>solve</strong> that returns the number 5.
-        </p>
-
-        <textarea id="codeEditor" class="code-editor" spellcheck="false">
-function solve() {
-    
-}
-        </textarea>
-
-        <div class="challenge-controls">
-            <button id="runCodeBtn">Run Code</button>
-            <button id="hintBtn">Hint</button>
-        </div>
-
-        <div id="feedback" class="feedback"></div>
-
+    <section class="reveal">
+      <label for="searchInput">Search this page</label>
+      <input id="searchInput" type="search" placeholder="Search challenge content...">
     </section>
 
-</main>
+    <section class="card reveal" data-search-item>
+      <h2 id="challengeText">Challenge loading...</h2>
+      <label for="codeEditor">Editor</label>
+      <textarea id="codeEditor" spellcheck="false">function square(n) {
+  return n;
+}</textarea>
+      <div class="inline-controls">
+        <button id="runCodeBtn" class="button" type="button">Run Code</button>
+      </div>
+      <div id="codeFeedback" class="feedback" aria-live="polite">Run your code to see feedback.</div>
+    </section>
+  </main>
 
-<footer class="footer">
-    DevSite v1.0 — CodeLab Module
-</footer>
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>CodeLab module</span>
+      <span class="version-badge">DevSite v1.0</span>
+    </div>
+  </footer>
 
-<script src="../assets/js/main.js"></script>
-<script src="../assets/js/theme.js"></script>
-<script src="../assets/js/reveal.js"></script>
-<script src="../assets/js/search.js"></script>
-<script src="../assets/js/codelab.js"></script>
-
+  <a href="../index.html" class="home-fab" aria-label="Back to home">⌂</a>
 </body>
 </html>
